@@ -6,7 +6,7 @@ can expand with new attributes, behaviors, and quirks.
 
 `src/person.py` is the heart of the project. Inside the script is a `Person` 
 class where you can build in. You may add other classes if necessary, but 
-try to keep the mian focus on `Person`.
+try to keep the main focus on `Person`.
 
 Our goal is to simulate a human in Python as closely as possible (and create 
 a super long script) while providing a learning opportunity for beginners 

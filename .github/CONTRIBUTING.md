@@ -63,7 +63,7 @@ onto the main branch of this project.
 
 ## 📋 Task Issues
 
-Some issues wil be opened in the [Issues tab][repo-issues] on GitHub, labeled 
+Some issues will be opened in the [Issues tab][repo-issues] on GitHub, labeled 
 `task`. 
 
 If you are interested in completing a task: 
