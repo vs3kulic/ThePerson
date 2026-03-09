@@ -2,7 +2,7 @@
 name: Task
 about: Create a task to invite contributors
 title: 'TASK: Task title here'
-labels: 'help wanted', task
+labels: ['help wanted', task]
 ---
 
 **TODO**:
