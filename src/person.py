@@ -7,12 +7,18 @@ class Person:
     def __init__(self,
                  name: str | None = None,
                  age: int | None = None,
-                 gender: str | None = None):
+                 gender: str | None = None,
+                 height: float | None = None,
+                 nationality: str | None = None,
+                 occupation: str | None = None) -> None:
         """Initialize the person's attributes."""
         self.name = name
         self.age = age
         self.gender = gender
-        
+        self.height = height
+        self.nationality = nationality
+        self.occupation = occupation
+
     def greet(self) -> None:
         """Do a simple greeting and introduction."""
         self.say(f"Hello! My name is {self.name}.")
@@ -25,7 +31,7 @@ class Person:
             flush: bool = False) -> None:
         """Say a word, phrase, sentence or paragraph."""
         print(*args, sep=sep, end=end, file=file, flush=flush)
-        
+
     def introduce(self) -> None:
         """Print a full self-introduction using the person's attributes."""
         intro = f"Hi, my name is {self.name}."
@@ -33,5 +39,11 @@ class Person:
             intro += f" I am {self.age} years old."
         if self.gender is not None:
             intro += f" I identify as {self.gender}."
+        if self.height is not None:
+            intro += f" I am {self.height} meters tall."
+        if self.nationality is not None:
+            intro += f" I am from {self.nationality}."
+        if self.occupation is not None:
+            intro += f" I work as a {self.occupation}."
         self.say(intro)
     
