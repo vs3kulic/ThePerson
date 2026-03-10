@@ -33,5 +33,5 @@ class Person:
             intro += f" I am {self.age} years old."
         if self.gender is not None:
             intro += f" I identify as {self.gender}."
-        print(intro)
+        self.say(intro)
     
