@@ -35,13 +35,11 @@ class Person:
         self.say(f"Hello! My name is {self.name}.")
 
     @staticmethod
-    def say(
-        *args: object,
-        sep: str | None = " ",
-        end: str | None = "\n",
-        file: TextIO | None = None,
-        flush: bool = False,
-    ) -> None:
+    def say(*args: object,
+            sep: str | None = " ",
+            end: str | None = "\n",
+            file: TextIO | None = None,
+            flush: bool = False) -> None:
         """Say a word, phrase, sentence or paragraph."""
         print(*args, sep=sep, end=end, file=file, flush=flush)
 
@@ -52,6 +50,12 @@ class Person:
             intro += f" I am {self.age} years old."
         if self.gender is not None:
             intro += f" I identify as {self.gender}."
+        if self.height is not None:
+            intro += f" I am {self.height} meters tall."
+        if self.nationality is not None:
+            intro += f" I am from {self.nationality}."
+        if self.occupation is not None:
+            intro += f" I work as a {self.occupation}."
         self.say(intro)
 
     def celebrate(
