@@ -10,11 +10,12 @@ try to keep the main focus on `Person`.
 
 Our goal is to simulate a human in Python as closely as possible (and create 
 a super long script) while providing a learning opportunity for beginners 
-and a fun activity for experienced devs.
+and a fun activity for experienced devs, and spark imagination and 
+creativity. We also aim to keep our community safe and engaging for everyone.
 
 ---
 
-## 🚀 Why contribute?
+## 🚀 Why Contribute?
 - **Beginner-Friendly**: Whether you’re adding a new hobby, an `eat()` 
   method, or fixing a typo, no contribution is too small.
 - **Learn OOP by Doing**: Understand classes, methods, and inheritance by 
@@ -22,14 +23,16 @@ and a fun activity for experienced devs.
 - **Infinite Possibilities**: This project is _never_ complete. From tracking 
   "hunger levels" to implementing a complex `dream()` system, the only limit is
   your imagination.
+- **Be Part of The Town**: _The Town_ is a fun little community that anyone 
+  can join. Read [the section below](#-be-part-of-the-town) to find out more.
 
 Read our [Contribution Guidelines][contrib] to get started.
 
-## 📋 Completing tasks
+## 📋 Completing Tasks
 
 You can find tasks under the [Issues][repo-issues] tab on GitHub. These are 
-issues labeled `task` and are simple contributions you can make (good if you 
-are new). 
+issues labeled `task` and are contributions you can make with specific 
+instructions and more guidance. 
 
 If you are interested in completing a task: 
 - **Leave a comment requesting assignment under the issue**.
@@ -42,7 +45,7 @@ Each task issue is labeled with its approximate difficulty level; to ensure
 fair distribution of tasks amongst contributors, **please try to complete tasks 
 labeled with your level of coding experience only**
 
-## 🏡 Be part of The Town!
+## 🏡 Be Part of The Town!
 
 In the root directory of this repo, you will see `the_town.py`. Add yourself 
 as an instance of `Person`!
@@ -50,7 +53,7 @@ as an instance of `Person`!
 Read [CONTRIBUTING](.github/CONTRIBUTING.md) to get started (Any PR not 
 following the guidelines under "The Town" will be closed).
 
-### 📜 Town Laws:
+### 📖 Town Laws:
 - Only tamper with your own code
 - Don't change other townsfolk's attributes, etc.
 - Don't kill your neighbors (Don't remove `Person` instances other than your 
@@ -102,7 +105,7 @@ This project is licensed under the [MIT License](LICENSE.txt).
 
 ---
 
-Please [drop me a star][repo] to ensure this reaches as many devs as 
+Please [drop us a star][repo] to ensure this reaches as many devs as 
 possible 🙏 (PLEASE 🙏🙏🙏)
 
 [repo]: https://github.com/TheGittyPerson/ThePerson
