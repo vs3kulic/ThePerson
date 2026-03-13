@@ -51,8 +51,11 @@ class Person:
 
     @staticmethod
     def wave() -> None:
-        """Wave a hand to say hello or goodbye."""
-        print("\U0001f44b")  # Unicode for waving Hand emoji
+        """Wave a hand to greet or bid farewell.
+
+        This method prints a waving hand emoji to represent a wave.
+        """
+        print("\U0001f44b")  # Unicode for waving hand emoji
 
 
     def introduce(self) -> None:
@@ -143,4 +146,3 @@ class Person:
                 self.say(not_today_message)
         else:
             self.say(default_message)
-    
