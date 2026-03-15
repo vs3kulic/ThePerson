@@ -177,6 +177,12 @@ To ensure fair distribution of tasks amongst contributors, **please
 try to complete tasks labeled with your level of coding experience only** 
 (everyone should have a chance to contribute)
 
+#### Regarding the use of AI:
+The purpose of this project is to provide a learning opportunity for growing 
+developers, and using AI to complete [tasks](#-task-issues) defeats this 
+purpose. It is okay to make mistakes when completing tasks — reviewers will 
+be happy to correct them and give feedback.
+
 ## 🧑‍💻 Code Guidelines
 
 Here are **3 rules** you should remember when writing code:
