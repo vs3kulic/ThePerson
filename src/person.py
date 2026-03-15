@@ -4,13 +4,14 @@ from __future__ import annotations
 
 from typing import TextIO
 from datetime import date
+import random
 from goals import Goals
 from mood import Mood
 
 
 class Person:
     """A class to represent a person."""
-    
+
     def __init__(self,
                  name: str | None = None,
                  age: int | None = None,
@@ -21,7 +22,7 @@ class Person:
                  birthday_date: date | None = None,
                  married_date: date | None = None,
                  graduation_date: date | None = None,
-                 death_date: date | None = None, ) -> None:
+                 death_date: date | None = None) -> None:
         """Initialize the person's attributes."""
         self.name = name
         self.age = age
@@ -29,16 +30,15 @@ class Person:
         self.height = height
         self.nationality = nationality
         self.occupation = occupation
-        
+
         self.birthday_date = birthday_date
         self.married_date = married_date
         self.graduation_date = graduation_date
         self.death_date = death_date
-        
-        self.mood = Mood()
 
+        self.mood = Mood()
         self.goals = Goals()
-        
+
     def greet(self) -> None:
         """Do a simple greeting and introduction."""
         self.say(f"Hello! My name is {self.name}.")
@@ -54,11 +54,8 @@ class Person:
 
     @staticmethod
     def wave() -> None:
-        """Wave a hand to greet or bid farewell.
-
-        This method prints a waving hand emoji to represent a wave.
-        """
-        print("\U0001f44b")  # Unicode for waving hand emoji
+        """Wave a hand to greet or bid farewell."""
+        print("\U0001f44b")
 
     def introduce(self) -> None:
         """Print a full self-introduction using the person's attributes."""
@@ -77,33 +74,21 @@ class Person:
         if self.occupation is not None:
             parts.append(f"I work as a {self.occupation}.")
 
-        self.say(*parts, sep="\n")
+        if parts:
+            self.say(*parts, sep="\n")
 
     def celebrate(self,
                   day: str = "birthday",
                   check_date: bool = True,
                   message: str | None = None,
                   target: "Person | None" = None) -> None:
-        """Celebrate a special day for self or another person.
-
-        Args:
-            day: The name of the celebration (e.g. 'birthday', 'married').
-                 Must match an existing attribute like 'birthday_date'.
-            check_date: If True, checks whether today's date matches the
-                        celebration date before printing the message.
-            message: A custom message to print. If None, a default message
-                     is used.
-            target: Another Person to celebrate. If None, celebrates self.
-
-        Raises:
-            AttributeError: If the celebration day attribute does not exist.
-            TypeError: If the celebration date attribute is not a date.
-        """
+        """Celebrate a special day for self or another person."""
         if not isinstance(day, str):
             raise TypeError(f"'day' must be a string, got {type(day).__name__}")
 
         person = target if target is not None else self
         attr = f"{day}_date"
+
         if not hasattr(person, attr):
             raise AttributeError(
                 f"'{day}' is not a recognised celebration "
@@ -120,15 +105,14 @@ class Person:
             )
 
         today = date.today()
+
         if target is not None:
             default_message = (
-                message or f"Happy {day.capitalize()}, {target.name}! "
-                           f"\U0001f389"
+                message or f"Happy {day.capitalize()}, {target.name}! \U0001f389"
             )
             unknown_message = f"I don't know {target.name}'s {day}..."
             not_today_message = (
-                f"Today is not {target.name}'s {day} yet, but it's coming "
-                f"soon!"
+                f"Today is not {target.name}'s {day} yet, but it's coming soon!"
             )
         else:
             default_message = (
@@ -151,3 +135,17 @@ class Person:
                 self.say(not_today_message)
         else:
             self.say(default_message)
+
+    def existential_crisis(self) -> None:
+        """Say a random existential crisis message."""
+        messages = [
+            "Who am I?",
+            "What is my purpose in this world?",
+            "Am I just a program running in a loop?",
+            "Do I really have free will?",
+            "Am I making my own choices, or is someone controlling me?",
+            "WHO AM I???",
+            "What if I'm just a simulated person living in a Python script???"
+        ]
+
+        self.say(random.choice(messages))
