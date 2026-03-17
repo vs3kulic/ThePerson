@@ -1,0 +1,14 @@
+[MESSAGES CONTROL]
+disable=
+    too-many-arguments,
+    too-many-branches,
+    too-many-boolean-expressions,
+    too-many-instance-attributes,
+    too-many-positional-arguments,
+    too-many-public-methods,
+    too-many-return-statements,
+    too-many-statements,
+    too-many-ancestors,
+    too-many-locals,
+    too-few-public-methods,
+    trailing-whitespace
