@@ -14,7 +14,11 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         issue-message: >-
           Thanks for opening your first issue on this repository! Make sure
-          you've read our contributing guidelines — it's very important to us.
+          you've read our
+          [contributing guidelines](https://github.com/TheGittyPerson/ThePerson/blob/main/.github/CONTRIBUTING.md)
+          — it's very important to us.
         pr-message: >-
           Thanks for opening your first PR on this repository! Make sure you've
-          read our contributing guidelines — it's very important to us.
+          read our 
+          [contributing guidelines](https://github.com/TheGittyPerson/ThePerson/blob/main/.github/CONTRIBUTING.md)
+          — it's very important to us.

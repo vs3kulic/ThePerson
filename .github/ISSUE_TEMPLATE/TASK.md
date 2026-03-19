@@ -25,7 +25,8 @@ Please make sure you have read the [Contributing Guidelines][contrib] before
 working.
 
 Feel free to ask any questions here.
-**Leave a comment** if you wish to work on this task!
+**Leave a comment if you wish to work on this task!**
 
-[contrib]: https://github.com/TheGittyPerson/ThePerson/blob/7ca2ee060799edced7722ce867d2cace53eac1e0/.github/CONTRIBUTING.md
+[contrib]: 
+https://github.com/TheGittyPerson/ThePerson/blob/main/.github/CONTRIBUTING.md
 [pep-8]: https://peps.python.org/pep-0008/
