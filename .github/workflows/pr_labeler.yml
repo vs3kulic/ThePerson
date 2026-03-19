@@ -1,0 +1,46 @@
+name: PR Labeler
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  label_task:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.pull_request.title || "";
+            const labelRules = [
+              ["documentation", /^(docs)\b/i],
+              ["bug", /^(bugfix|bug|hotfix)\b/i],
+              ["enhancement", /^(feat|feature)\b/i],
+              ["ui", /^(ui)\b/i],
+              ["format", /^(format)\b/i],
+              ["refactor", /^(refact|refactor)\b/i],
+              ["work in progress", /^(wip)\b/i],
+              ["experiment", /^(exp|experiment)\b/i],
+              ["miscellaneous", /^(misc)\b/i],
+              ["task", /^(task)\b/i],
+            ];
+
+            const labels = labelRules
+              .filter(([, pattern]) => pattern.test(title))
+              .map(([label]) => label);
+
+            if (labels.length === 0) return;
+
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const issue_number = context.payload.pull_request.number;
+
+            await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number,
+              labels,
+            });
