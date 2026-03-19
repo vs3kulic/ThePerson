@@ -6,8 +6,8 @@ import random
 from typing import TextIO
 from datetime import date
 
-from goals import Goals
-from mood import Mood
+from .goals import Goals
+from .mood import Mood
 
 
 class Person:
