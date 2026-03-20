@@ -5,45 +5,77 @@ from __future__ import annotations
 import random
 from typing import TextIO
 from datetime import date
+from dataclasses import dataclass, field
 
 from .goals import Goals
 from .mood import Mood
+
+
+@dataclass
+class Profile:
+    """Basic profile information for a person."""
+
+    name: str | None = None
+    age: int | None = None
+    gender: str | None = None
+    nationality: str | None = None
+    hobbies: list[str] = field(default_factory=list)
+
+
+@dataclass
+class Physical:
+    """Physical characteristics such as height, weight and appearance."""
+
+    height: float | None = None
+    weight: float | None = None
+    skin_tone: str | None = None
+    hair_color: str | None = None
+
+
+@dataclass
+class Professional:
+    """Professional/career information."""
+
+    occupation: str | None = None
+    skills: list[str] = field(default_factory=list)
+
+
+@dataclass
+class LifeDates:
+    """Store important life dates for a person."""
+
+    birthday_date: date | None = None
+    married_date: date | None = None
+    graduation_date: date | None = None
+    death_date: date | None = None
 
 
 class Person:
     """A class to represent a person."""
     
     def __init__(self,
-                 name: str | None = None,
-                 age: int | None = None,
-                 gender: str | None = None,
-                 height: float | None = None,
-                 nationality: str | None = None,
-                 occupation: str | None = None,
-                 birthday_date: date | None = None,
-                 married_date: date | None = None,
-                 graduation_date: date | None = None,
-                 death_date: date | None = None,) -> None:
+                 profile: Profile | None = None,
+                 physical: Physical | None = None,
+                 professional: Professional | None = None,
+                 life_dates: LifeDates | None = None,
+                 mood: Mood | None = None,
+                 goals: Goals | None = None,) -> None:
         """Initialize the person's attributes."""
-        self.name = name
-        self.age = age
-        self.gender = gender
-        self.height = height
-        self.nationality = nationality
-        self.occupation = occupation
         
-        self.birthday_date = birthday_date
-        self.married_date = married_date
-        self.graduation_date = graduation_date
-        self.death_date = death_date
-        
-        self.mood = Mood()
-        
-        self.goals = Goals()
-        
+        self.profile = profile if profile is not None else Profile()
+        self.physical = physical if physical is not None else Physical()
+        self.professional = (
+            professional if professional is not None else Professional()
+        )
+        self.life_dates = (
+            life_dates if life_dates is not None else LifeDates()
+        )
+        self.mood = mood if mood is not None else Mood()
+        self.goals = goals if goals is not None else Goals()
+
     def greet(self) -> None:
         """Do a simple greeting and introduction."""
-        self.say(f"Hello! My name is {self.name}.")
+        self.say(f"Hello! My name is {self.profile.name}.")
 
     @staticmethod
     def say(*args: object,
@@ -91,19 +123,19 @@ class Person:
         """Print a full self-introduction using the person's attributes."""
         parts = []
 
-        if self.name is not None:
-            parts.append(f"Hi, my name is {self.name}.")
-        if self.age is not None:
-            parts.append(f"I am {self.age} years old.")
-        if self.gender is not None:
-            parts.append(f"I identify as {self.gender}.")
-        if self.height is not None:
-            parts.append(f"I am {self.height} meters tall.")
-        if self.nationality is not None:
-            parts.append(f"I am from {self.nationality}.")
-        if self.occupation is not None:
-            parts.append(f"I work as a {self.occupation}.")
-        
+        if self.profile.name is not None:
+            parts.append(f"Hi, my name is {self.profile.name}.")
+        if self.profile.age is not None:
+            parts.append(f"I am {self.profile.age} years old.")
+        if self.profile.gender is not None:
+            parts.append(f"I identify as {self.profile.gender}.")
+        if self.physical.height is not None:
+            parts.append(f"I am {self.physical.height} meters tall.")
+        if self.profile.nationality is not None:
+            parts.append(f"I am from {self.profile.nationality}.")
+        if self.professional.occupation is not None:
+            parts.append(f"I work as a {self.professional.occupation}.")
+
         self.say(*parts, sep="\n")
 
     def celebrate(self,
@@ -133,7 +165,7 @@ class Person:
         person = target if target is not None else self
         attr = f"{day}_date"
         
-        if not hasattr(person, attr):
+        if not hasattr(person.life_dates, attr):
             raise AttributeError(
                 f"'{day}' is not a recognised celebration "
                 f"(could not find attribute '{attr}')"
@@ -152,13 +184,13 @@ class Person:
         
         if target is not None:
             default_message = (
-                message or f"Happy {day.capitalize()}, {target.name}! "
+                message or f"Happy {day.capitalize()}, {target.profile.name}! "
                            f"\U0001f389"
             )
-            unknown_message = f"I don't know {target.name}'s {day}..."
+            unknown_message = f"I don't know {target.profile.name}'s {day}..."
             not_today_message = (
-                f"Today is not {target.name}'s {day} yet, but it's coming "
-                f"soon!"
+                f"Today is not {target.profile.name}'s {day} yet, but it's "
+                f"coming soon!"
             )
         else:
             default_message = (
