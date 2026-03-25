@@ -200,3 +200,35 @@ class Mood:
     def __repr__(self) -> str:
         """Return a detailed representation of the mood."""
         return f"Mood(name={self.name!r}, intensity={self.intensity})"
+
+    def express(self) -> str:
+        """Return an emoji that represents the current mood and intensity.
+
+        Neutral always maps to 😐. For all other moods, the emoji is chosen
+        based on the intensity value (0–1 scale mapped to 1–10 internally).
+
+        Returns:
+            A single emoji string representing the mood.
+        """
+        if self.name == "neutral":
+            return "😐"
+
+        # Map 0.0–1.0 intensity to 1–10 scale
+        level = max(1, round(self.intensity * 10))
+
+        _EMOJI_MAP: dict[str, list[str]] = {
+            "happy": ["🙂", "🙂", "😊", "😊", "😄", "😄", "😁", "😁", "🤩", "🤩"],
+            "sad": ["😕", "😕", "🙁", "🙁", "☹️", "☹️", "😔", "😔", "🥺", "😭"],
+            "angry": ["😤", "😤", "😠", "😠", "😡", "😡", "🤬", "🤬", "💢", "💢"],
+            "anxious": ["😟", "😟", "😰", "😰", "😨", "😨", "😱", "😱", "🫨", "🫨"],
+            "excited": ["🙂", "🙂", "😄", "😄", "🤩", "🤩", "🎉", "🎉", "🥳", "🥳"],
+            "tired": ["😑", "😑", "😴", "😴", "🥱", "🥱", "😫", "😫", "💤", "💤"],
+            "surprised": ["😮", "😮", "😲", "😲", "🤯", "🤯", "😱", "😱", "🫢", "🫢"],
+            "disgusted": ["😕", "😕", "🤢", "🤢", "🤮", "🤮", "😖", "😖", "🤢", "🤮"],
+            "fearful": ["😟", "😟", "😨", "😨", "😱", "😱", "🫨", "🫨", "😰", "😰"],
+            "calm": ["😌", "😌", "🧘", "🧘", "😇", "😇", "☮️", "☮️", "🕊️", "🕊️"],
+            "confused": ["🤔", "🤔", "😕", "😕", "🫤", "🫤", "😵", "😵", "😵‍💫", "😵‍💫"],
+        }
+
+        emojis = _EMOJI_MAP.get(self.name, ["😐"] * 10)
+        return emojis[level - 1]
