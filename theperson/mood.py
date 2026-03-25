@@ -233,3 +233,4 @@ class Mood:
         emojis = emoji_map.get(self.name, ["😐"] * 10)
         return emojis[level - 1]
     
+    
