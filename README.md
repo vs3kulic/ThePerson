@@ -55,6 +55,9 @@ If you are interested in completing a task:
 - Give our [Contributing Guidelines][contrib] a read.
 - Start coding!
 
+> Click [HERE][avail-tasks] to see available tasks (link filtered for pinned 
+> tasks or open tasks with no assignees)
+
 #### Note:
 Each task issue is labeled with its approximate difficulty level; to ensure 
 fair distribution of tasks amongst contributors, **please try to complete tasks 
@@ -151,6 +154,7 @@ If you enjoyed contributing to this project or appreciate the concept, consider
 [repo]: https://github.com/TheGittyPerson/ThePerson
 [repo-disc]: https://github.com/TheGittyPerson/ThePerson/discussions
 [repo-issues]: https://github.com/TheGittyPerson/ThePerson/issues
+[avail-tasks]: https://github.com/TheGittyPerson/ThePerson/issues?q=is%3Aissue%20state%3Aopen%20(no%3Aassignee%20OR%20label%3A%22%F0%9F%93%8C%20pinned%22)%20label%3Atask
 [contrib]: /.github/CONTRIBUTING.md
 [coc]: /.github/CODE_OF_CONDUCT.md
 [profile]: https://github.com/TheGittyPerson

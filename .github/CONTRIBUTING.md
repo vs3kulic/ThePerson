@@ -37,6 +37,8 @@ finding and reporting bugs, improving documentation, and more!
 
 Any addition to the project will be very much appreciated, even small ones.
 
+[^ TOC](#-table-of-contents)
+
 ## 📐 Requirements
 
 - **Python 3.12 and above** (recommended)
@@ -46,6 +48,8 @@ Any addition to the project will be very much appreciated, even small ones.
   - Visual Studio
   - Eclipse
   - **NOT** the GitHub web editor or a basic text editor
+
+[^ TOC](#-table-of-contents)
 
 ---
 
@@ -81,6 +85,8 @@ To suggest a feature:
 5. Submit the issue.
 
 ...or add a comment under a [discussion][repo-disc] describing the feature.
+
+[^ TOC](#-table-of-contents)
 
 ---
 
@@ -142,6 +148,8 @@ into the main branch of this project.
 - Minimize how much code you touch outside what you are working on; change 
   only what you are focusing on doing and avoid changing others' code.
 
+[^ TOC](#-table-of-contents)
+
 ## 📋 Task Issues
 
 Some issues will be opened in the [Issues tab][repo-issues] on GitHub, labeled 
@@ -180,6 +188,9 @@ Other issue-closing keywords you can use:
 * resolves
 * resolved
 
+> Click [HERE][avail-tasks] to see available tasks (link filtered for pinned 
+> tasks or open tasks with no assignees)
+
 ### Note
 
 Each task issue is labeled with its approximate difficulty level.
@@ -193,6 +204,8 @@ The purpose of this project is to provide a learning opportunity for growing
 developers, and using AI to complete [tasks](#-task-issues) defeats this 
 purpose. It is okay to make mistakes when completing tasks — reviewers will 
 be happy to correct them and give feedback.
+
+[^ TOC](#-table-of-contents)
 
 ## 🧑‍💻 Code Guidelines
 
@@ -236,6 +249,8 @@ would never think of.
 Give your code some _personality_. Avoid dull, flavorless code. You can even 
 add a little joke comment if your code starts to look sleep-inducing.
 
+[^ TOC](#-table-of-contents)
+
 ## 🏡 The Town
 
 In the root directory of this repo, you will see `the_town.py`. Add yourself 
@@ -260,6 +275,8 @@ added previously.
 - Don't kill your neighbors (Don't remove `Person` instances other than your 
   own)
 
+[^ TOC](#-table-of-contents)
+
 ## 🤖 AI-Assisted Contributions
 
 AI tools can be helpful during development, and contributors are allowed to use 
@@ -283,6 +300,8 @@ may be **closed without merging**.
 
 If you used AI assistance, please disclose it briefly in your PR description.
 
+[^ TOC](#-table-of-contents)
+
 ## 🧰 Making Your First Contribution
 
 If you're new here or are not familiar with contributing to repositories on 
@@ -292,8 +311,11 @@ GitHub, here are some links with information that might help:
 - https://docs.github.com/get-started/exploring-projects-on-github/contributing-to-open-source
 - https://github.com/firstcontributions/first-contributions
 
+[^ TOC](#-table-of-contents)
+
 [repo]: https://github.com/TheGittyPerson/ThePerson
 [repo-issues]: https://github.com/TheGittyPerson/ThePerson/issues
+[avail-tasks]: https://github.com/TheGittyPerson/ThePerson/issues?q=is%3Aissue%20state%3Aopen%20(no%3Aassignee%20OR%20label%3A%22%F0%9F%93%8C%20pinned%22)%20label%3Atask
 [repo-disc]: https://github.com/TheGittyPerson/ThePerson/discussions
 [coc]: /.github/CODE_OF_CONDUCT.md
 [pep-8]: https://peps.python.org/pep-0008/
