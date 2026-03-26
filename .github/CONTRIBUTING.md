@@ -122,6 +122,7 @@ enhancement to the project or fixing a bug)
    | `docs`           | Documentation only                             |
    | `format`/`style` | Formatting fixes                               |
    | `refactor`       | Code improvements that do not affect behaviour |
+   | `test`           | Changes to test files                          |
    | `wip`            | Work in progress                               |
    | `experiment`     | Temporary, experimental code; playground       |
    | `mix`            | A combination of different fixes/changes       |
