@@ -22,11 +22,20 @@ class Item:
         Raises:
             ValueError: If name is not a non-empty string.
             TypeError: If value is not a number.
+            TypeError: If stackable is not a boolean.
         """
         if not isinstance(name, str) or not name.strip():
-            raise ValueError("Item name must be a non-empty string.")
+            raise ValueError("'name' must be a non-empty string")
         if not isinstance(value, (int, float)):
-            raise TypeError("Value must be a number.")
+            raise TypeError(
+                "'value' must be a number, got type "
+                f"'{type(value)}' instead"
+            )
+        if not isinstance(stackable, bool):
+            raise TypeError(
+                "'stackable' must be a boolean, got type "
+                f"'{type(stackable)}' instead"
+            )
 
         self.name = name.strip()
         self.value = float(value)
@@ -67,8 +76,8 @@ class Food(Item):
     def __init__(
         self,
         name: str,
-        calories: int,
-        cooked: bool = False,
+        calories: int | None = None,
+        cooked: bool | None = None,
         brand: str | None = None,
         value: float = 0.0,
     ) -> None:
@@ -82,15 +91,33 @@ class Food(Item):
             value: The value of the food.
 
         Raises:
-            TypeError: If calories is not an integer.
+            TypeError: If calories is not an integer or None.
+            TypeError: If cooked is not a boolean or None.
+            TypeError: If brand is not a string or None.
+            ValueError: If brand is an empty string.
         """
-        if not isinstance(calories, int):
-            raise TypeError("Calories must be an integer.")
+        if calories is not None and not isinstance(calories, int):
+            raise TypeError(
+                "'calories' must be an integer or None, got type "
+                f"'{type(calories)}' instead"
+            )
+        if cooked is not None and not isinstance(cooked, bool):
+            raise TypeError(
+                "'cooked' must be a boolean or None, got type "
+                f"'{type(cooked)}' instead"
+            )
+        if brand is not None and not isinstance(brand, str):
+            raise TypeError(
+                "'brand' must be a string or None, got type "
+                f"'{type(brand)}' instead"
+            )
+        if isinstance(brand, str) and not brand.strip():
+            raise ValueError("'brand' must be a non-empty string if provided")
 
         super().__init__(name, value=value, stackable=True)
         self.calories = calories
         self.cooked = cooked
-        self.brand = brand
+        self.brand = brand.strip() if isinstance(brand, str) else None
 
 
 class Electronic(Item):
@@ -116,12 +143,21 @@ class Electronic(Item):
             TypeError: If battery is not an integer.
             ValueError: If battery is outside the range 0 to 100.
         """
-        if not isinstance(brand, str) or not brand.strip():
-            raise ValueError("Brand must be a non-empty string.")
+        if not isinstance(brand, str):
+            raise TypeError(
+                "'brand' must be a string, got type "
+                f"'{type(brand)}' instead"
+            )
+
+        if not brand.strip():
+            raise ValueError("'brand' must be a non-empty string")
         if not isinstance(battery, int):
-            raise TypeError("Battery must be an integer.")
+            raise TypeError(
+                "'battery' must be an integer, got type "
+                f"'{type(battery)}' instead"
+            )
         if not 0 <= battery <= 100:
-            raise ValueError("Battery must be between 0 and 100.")
+            raise ValueError("'battery' must be between 0 and 100")
 
         super().__init__(name, value=value, stackable=False)
         self.brand = brand.strip()

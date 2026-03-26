@@ -19,9 +19,12 @@ class Inventory:
             ValueError: If max_capacity is negative.
         """
         if not isinstance(max_capacity, int):
-            raise TypeError("max_capacity must be an integer.")
+            raise TypeError(
+                "'max_capacity' must be an integer, got type "
+                f"'{type(max_capacity)}' instead"
+            )
         if max_capacity < 0:
-            raise ValueError("max_capacity must be non-negative.")
+            raise ValueError("'max_capacity' must be non-negative")
 
         self.stackable_items: dict[Item, int] = {}
         self.unique_items: list[Item] = []
@@ -55,13 +58,19 @@ class Inventory:
             ValueError: If adding the item exceeds max capacity.
         """
         if not isinstance(item, Item):
-            raise TypeError("item must be an Item.")
+            raise TypeError(
+                "'item' must be an 'Item' object, got type "
+                f"'{type(item)}' instead"
+            )
         if not isinstance(quantity, int):
-            raise TypeError("quantity must be an integer.")
+            raise TypeError(
+                "'quantity' must be an integer, got type "
+                f"'{type(quantity)}' instead"
+            )
         if quantity <= 0:
-            raise ValueError("Quantity must be positive.")
+            raise ValueError("'quantity' must be positive")
         if self.item_count + quantity > self.max_capacity:
-            raise ValueError("Inventory capacity exceeded.")
+            raise ValueError("Inventory capacity exceeded")
 
         if item.stackable:
             self.stackable_items[item] = (
@@ -84,17 +93,23 @@ class Inventory:
             ValueError: If the item is not found or quantity is insufficient.
         """
         if not isinstance(item, Item):
-            raise TypeError("item must be an Item.")
+            raise TypeError(
+                "'item' must be an 'Item' object, got type "
+                f"'{type(item)}' instead"
+            )
         if not isinstance(quantity, int):
-            raise TypeError("quantity must be an integer.")
+            raise TypeError(
+                f"'quantity' must be an integer, got type "
+                f"'{type(quantity)}' instead"
+            )
         if quantity <= 0:
-            raise ValueError("Quantity must be positive.")
+            raise ValueError("'quantity' must be positive")
 
         if item.stackable:
             if item not in self.stackable_items:
-                raise ValueError("Item not found in inventory.")
+                raise ValueError("Item not found in inventory")
             if self.stackable_items[item] < quantity:
-                raise ValueError("Not enough quantity to remove.")
+                raise ValueError("Not enough quantity to remove")
 
             self.stackable_items[item] -= quantity
             if self.stackable_items[item] == 0:
@@ -105,7 +120,7 @@ class Inventory:
                 if stored_item == item
             ]
             if len(matches) < quantity:
-                raise ValueError("Not enough quantity to remove.")
+                raise ValueError("Not enough quantity to remove")
 
             removed = 0
             remaining_items: list[Item] = []
@@ -121,10 +136,10 @@ class Inventory:
         self.stackable_items.clear()
         self.unique_items.clear()
 
-    def list_items(self) -> str:
+    def get_items(self) -> str:
         """Return a formatted list of inventory items."""
         if self.is_empty():
-            return "Inventory is empty."
+            return "Inventory is empty"
 
         lines: list[str] = []
 
@@ -141,6 +156,10 @@ class Inventory:
             lines.append(item.describe())
 
         return "\n".join(lines)
+    
+    def list_items(self) -> None:
+        """Print a human-readable listing of the inventory to stdout."""
+        print(self.get_items())
 
     def is_empty(self) -> bool:
         """Return True if the inventory is empty."""
@@ -201,7 +220,7 @@ class Inventory:
 
     def sort_items(self) -> str:
         """Return a formatted list of all items sorted by name."""
-        return self.list_items()
+        return self.get_items()
 
     def total_value(self) -> float:
         """Return the total value of all items in the inventory."""
@@ -213,7 +232,7 @@ class Inventory:
 
     def __str__(self) -> str:
         """Return a readable string representation of the inventory."""
-        return self.list_items()
+        return self.get_items()
 
     def __repr__(self) -> str:
         """Return a detailed representation of the inventory."""
