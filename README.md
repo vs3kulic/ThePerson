@@ -15,7 +15,7 @@
 ![Branch Status](https://img.shields.io/github/checks-status/TheGittyPerson/ThePerson/main)
 ![License](https://img.shields.io/github/license/TheGittyPerson/ThePerson)
 
-**The Person is an open-source Python simulation of a person** living 
+**ThePerson is an open-source Python simulation of a person** living 
 inside your computer. It features a central `Person` class that developers 
 can expand with new attributes, behaviors, and quirks.
 
@@ -38,7 +38,7 @@ creativity**. We also aim to keep our community safe and engaging for everyone.
 - **Infinite Possibilities**: This project is _never_ complete. From tracking 
   "hunger levels" to implementing a complex `dream()` system, the only limit is
   your imagination.
-- **Be Part of The Town**: _The Town_ is a fun little community that anyone 
+- **Be Part of TheTown**: _TheTown_ is a fun little community that anyone 
   can join. Read [the section below](#-be-part-of-the-town) to find out more.
 
 Read our [Contributing Guidelines][contrib] to get started.
@@ -63,13 +63,13 @@ Each task issue is labeled with its approximate difficulty level; to ensure
 fair distribution of tasks amongst contributors, **please try to complete tasks 
 labeled with your level of coding experience only**
 
-## 🏡 Be Part of The Town!
+## 🏡 Be Part of TheTown!
 
 In the root directory of this repo, you will see `the_town.py`. Add yourself 
 as an instance of `Person`!
 
-Read [CONTRIBUTING](.github/CONTRIBUTING.md) to get started. Any PR not 
-following the guidelines under "The Town" will be closed.
+Read [CONTRIBUTING](.github/CONTRIBUTING.md) to get started. Any PR not following the guidelines 
+under "TheTown" will be closed.
 
 ### 📖 Town Laws:
 - Only edit your own code, even if you see a mistake someone made. That's their 

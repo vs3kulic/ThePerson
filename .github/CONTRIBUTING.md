@@ -10,7 +10,7 @@ and experts are very welcome here.
 This project is purely for entertainment purposes, so _do_ have fun and let 
 your creativity flow.
 
-If you want to contribute to The Person, I recommend you take the time to read 
+If you want to contribute to ThePerson, I recommend you take the time to read 
 these contributing guidelines, or at least skim through it to get an idea of 
 how to make good contributions.
 
@@ -27,7 +27,7 @@ how to make good contributions.
   - [⚠️ THINGS TO KEEP IN MIND](#-things-to-keep-in-mind)
 - [📋 Task Issues](#-task-issues)
 - [🧑‍💻 Code Guidelines](#-code-guidelines)
-- [🏡 The Town](#-the-town)
+- [🏡 TheTown](#-thetown)
 - [🤖 AI-Assisted Contributions](#-ai-assisted-contributions)
 - [🧰 Making Your First Contribution](#-making-your-first-contribution)
 
@@ -41,7 +41,7 @@ There are many ways you can contribute:
 - Reformatting, refactoring, or enhancing code
 - Improving documentation
 - [Completing tasks](#-task-issues)
-- [Joining The Town](#-the-town)
+- [Joining TheTown](#-thetown)
 - [Participating in discussions][repo-disc]
 - Helping to review or give feedback to pull requests or issues
 - Suggesting task issues (by opening a discussion)
@@ -135,7 +135,7 @@ enhancement to the project or fixing a bug)
      documentation`
 5. Push commits to GitHub (if you have made changes locally on your machine).
 6. Create and submit a pull request.
-7. Request a review from a maintainer.
+7. Optional: Request a review from a maintainer.
 
 We will likely need to discuss the changes you make and apply some tweaks 
 and polishes before approval.
@@ -264,10 +264,10 @@ add a little joke comment if your code starts to look sleep-inducing.
 
 [^ TOC](#-table-of-contents)
 
-## 🏡 The Town
+## 🏡 TheTown
 
 In the root directory of this repo, you will see `the_town.py`. Add yourself 
-as a `Person` instance to be part of the town!
+as a `Person` instance to be part of TheTown!
 
 Pull request steps:
 1. Fork and clone this repository
