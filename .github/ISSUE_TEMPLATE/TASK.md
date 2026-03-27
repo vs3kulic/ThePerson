@@ -1,6 +1,6 @@
 ---
 name: Task
-about: Create a task to invite contributors
+about: [For maintainers only] Create a task to invite contributors
 title: 'TASK: Task title here'
 labels: ['good first issue', 'help wanted', task]
 ---

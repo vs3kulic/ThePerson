@@ -19,6 +19,10 @@ You can provide code snippets of your feature with some examples.
 
 Where the feature can be applied in code or how it can be used.
 
+```python
+You can provide code snippets of your feature with some examples.
+```
+
 ## Limitations of the feature
 
 (if any)
