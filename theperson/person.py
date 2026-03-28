@@ -8,7 +8,6 @@ from typing import TextIO
 from datetime import date
 from dataclasses import dataclass, field
 
-
 from .goals import Goals
 from .mood import Mood
 
@@ -268,9 +267,3 @@ class Person:
             print(f"All assigned tasks for {self.profile.name} have been successully completed.")
         else:
             print(f"No tasks were provided for {self.profile.name}")
-
-
-
-
-
-
