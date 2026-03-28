@@ -34,7 +34,7 @@ jobs:
               "style",
               "refact",
               "refactor",
-              "test"
+              "test",
               "wip",
               "exp",
               "experiment",
