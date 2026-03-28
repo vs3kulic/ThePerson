@@ -290,15 +290,15 @@ class Person:
 
     @staticmethod
     def choose(iterable: Sequence[Any]) -> Any:
-        """Choose and return a random element from the given iterable.
+        """Choose and return a random element from the given sequence.
 
         Args:
-            iterable: An iterable (e.g., list, tuple, set).
+            iterable: A sequence (e.g., list, tuple, set).
 
         Returns:
-            A random element from the iterable.
+            A random element from the sequence.
 
         Raises:
-            IndexError: If the iterable is empty.
+            IndexError: If the sequence is empty.
         """
         return random.choice(iterable)
