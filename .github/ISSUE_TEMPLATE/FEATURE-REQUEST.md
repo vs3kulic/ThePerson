@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Share about your feature idea
-title: 'FEATURE: Name of the feature here'
+title: 'feature: Name of the feature here'
 labels: enhancement
 ---
 
