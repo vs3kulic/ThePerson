@@ -237,10 +237,10 @@ class Person:
         """Work on the given tasks.
         Args:
             tasks: List of tasks to work on.
-            delays: Delay to complete each task in tasks.
+            durations: Duration to complete each task in tasks.
 
         Raises:
-            ValueError: if tasks is list and delays float.
+            ValueError: if tasks is list and durations is float.
         """
         
         if isinstance(tasks, str):
