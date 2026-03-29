@@ -266,13 +266,10 @@ class Person:
         
         if len(tasks) == 0:
             self.say("No tasks provided.")
-            return
-
-        self.say("Tasks to complete: ")
-
-        tasks_map = dict(zip(tasks, durations))
-        for task, delay in tasks_map.items():
-            self.say(f"• {task}...")
-            time.sleep(delay)
-
-        self.say(f"{self.profile.name} has completed all the tasks.")
+        else:
+            self.say("Tasks to complete: ")
+            tasks_map = dict(zip(tasks, durations))
+            for task, delay in tasks_map.items():
+                self.say(f"• {task}...")
+                time.sleep(delay)
+            self.say(f"{self.profile.name} has completed all the tasks.")
