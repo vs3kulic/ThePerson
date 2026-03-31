@@ -12,7 +12,7 @@ class Item:
         value: float | None = None,
         stackable: bool = True,
     ) -> None:
-        """Initialise a base item.
+        """Initialize a base item.
 
         Args:
             name: The name of the item.
@@ -87,7 +87,7 @@ class Food(Item):
         brand: str | None = None,
         value: float | None = None,
     ) -> None:
-        """Initialise a food item.
+        """Initialize a food item.
 
         Args:
             name: The name of the food.
@@ -159,7 +159,7 @@ class Electronic(Item):
         battery: int = 100,
         value: float | None = None,
     ) -> None:
-        """Initialise an electronic item.
+        """Initialize an electronic item.
 
         Args:
             name: The name of the electronic item.
@@ -216,10 +216,10 @@ class Electronic(Item):
 
 
 class Valuable(Item):
-    """A valuable item such as jewellery, gold, or art."""
+    """A valuable item such as jewelry, gold, or art."""
 
     def __init__(self, name: str, value: float) -> None:
-        """Initialise a valuable item.
+        """Initialize a valuable item.
 
         Args:
             name: The name of the valuable item.
@@ -240,7 +240,7 @@ class Weapon(Item):
         name: str,
         value: float = 0.0,
     ) -> None:
-        """Initialise a weapon.
+        """Initialize a weapon.
 
         Args:
             name: The name of the weapon.

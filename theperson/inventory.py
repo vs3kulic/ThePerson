@@ -9,7 +9,7 @@ class Inventory:
     """A class to manage a person's inventory."""
 
     def __init__(self, max_capacity: int = 100) -> None:
-        """Initialise the inventory.
+        """Initialize the inventory.
 
         Args:
             max_capacity: The maximum total number of items allowed.

@@ -15,7 +15,7 @@ class Goal:
     """
 
     def __init__(self, name: str, description: str = "") -> None:
-        """Initialise the goal.
+        """Initialize the goal.
 
         Args:
             name: The name of the goal.
@@ -67,7 +67,7 @@ class Goals:
     """
 
     def __init__(self) -> None:
-        """Initialise with an empty goals list."""
+        """Initialize with an empty goals list."""
         self.list: list[Goal] = []
 
     def add_goal(self, name: str, description: str = "") -> Goal:
