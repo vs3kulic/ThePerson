@@ -96,7 +96,8 @@ class Person:
             delay: Delay in seconds between repetitions. Defaults to 0.
             sep: Separator inserted between values. Defaults to a space.
             end: String appended after each print call. Defaults to a newline.
-            flush: Whether to forcibly flush the output stream. Defaults to False.
+            flush: Whether to forcibly flush the output stream. Defaults
+                   to False.
 
         Raises:
             TypeError: If repeat is not an int or delay is not numeric.
