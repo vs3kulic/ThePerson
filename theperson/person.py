@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import random
 import time
-from typing import Any, Sequence, TextIO
+from typing import Any, Sequence
 from datetime import date
 from dataclasses import dataclass, field
 
@@ -82,13 +82,45 @@ class Person:
         self.say(f"Hello! My name is {self.profile.name}.")
 
     @staticmethod
-    def say(*args: object,
+    def say(*things: object,
+            repeat: int = 1,
+            delay: float = 0,
             sep: str | None = " ",
             end: str | None = "\n",
-            file: TextIO | None = None,
             flush: bool = False) -> None:
-        """Say a word, phrase, sentence or paragraph."""
-        print(*args, sep=sep, end=end, file=file, flush=flush)
+        """Say words, phrases, sentences or paragraphs.
+
+        Args:
+            things: Objects to print.
+            repeat: Number of times to say the message. Defaults to 1.
+            delay: Delay in seconds between repetitions. Defaults to 0.
+            sep: Separator inserted between values. Defaults to a space.
+            end: String appended after each print call. Defaults to a newline.
+            flush: Whether to forcibly flush the output stream. Defaults to False.
+
+        Raises:
+            TypeError: If repeat is not an int or delay is not numeric.
+            ValueError: If repeat or delay are negative.
+        """
+        if isinstance(repeat, bool) or not isinstance(repeat, int):
+            raise TypeError(
+                f"'repeat' must be an int, got {type(repeat).__name__}"
+            )
+        if repeat < 0:
+            raise ValueError("'repeat' must be non-negative")
+
+        if isinstance(delay, bool) or not isinstance(delay, (int, float)):
+            raise TypeError(
+                f"'delay' must be numeric, got {type(delay).__name__}"
+            )
+        if delay < 0:
+            raise ValueError("'delay' must be non-negative")
+
+        delay_seconds = float(delay)
+        for index in range(repeat):
+            print(*things, sep=sep, end=end, flush=flush)
+            if index < repeat - 1 and delay_seconds > 0:
+                time.sleep(delay_seconds)
 
     @staticmethod
     def wave() -> None:
