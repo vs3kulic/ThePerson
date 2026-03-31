@@ -41,7 +41,7 @@ class Mood:
                        Defaults to 0.0.
 
         Raises:
-            ValueError: If the mood name is not recognised or intensity
+            ValueError: If the mood name is not recognized or intensity
                         is out of range.
         """
         self.name = Mood._validate_name(name)
@@ -60,7 +60,7 @@ class Mood:
 
         Raises:
             TypeError: If name is not a string.
-            ValueError: If name is not a recognised mood.
+            ValueError: If name is not a recognized mood.
 
         Returns:
             The validated mood name.
@@ -159,6 +159,13 @@ class Mood:
         self.name = "neutral"
         self.intensity = 0.0
 
+    def is_neutral(self) -> bool:
+        """Return True if the mood is effectively neutral.
+
+        A mood is neutral if its name is 'neutral' or its intensity is 0.
+        """
+        return self.name == "neutral" or self.intensity == 0.0
+
     def is_positive(self) -> bool:
         """Return True if the mood is generally positive.
 
@@ -183,7 +190,7 @@ class Mood:
         Returns:
             A string describing the mood and its intensity.
         """
-        if self.name == "neutral":
+        if self.is_neutral():
             return "feeling neutral."
         intensity_label = (
             "slightly" if self.intensity < 0.4
@@ -200,3 +207,52 @@ class Mood:
     def __repr__(self) -> str:
         """Return a detailed representation of the mood."""
         return f"Mood(name={self.name!r}, intensity={self.intensity})"
+
+    def express(self) -> str:
+        """Return an emoji that represents the current mood and intensity.
+
+        Neutral, or intensity==0.0, always maps to 😐. For all other moods,
+        the emoji is chosen based on the intensity value (0–1 scale mapped to
+        1–10 internally).
+        
+        Note that this method uses banker's rounding to round non-whole
+        intensities. When a number is exactly halfway between two potential
+        rounded values (e.g., ending in .5), Python rounds it to the nearest
+        even number.
+
+        Returns:
+            A single emoji string representing the mood.
+        """
+        if self.is_neutral():
+            return "😐"
+
+        # Map 0.0–1.0 intensity to 1–10 scale
+        level = max(1, round(self.intensity * 10))
+
+        emoji_map: dict[str, list[str]] = {
+            "happy":
+                ["🙂", "🙂", "😊", "😊", "😄", "😄", "😁", "😁", "🤩", "🤩"],
+            "sad":
+                ["😕", "😕", "🙁", "🙁", "☹️", "☹️", "😔", "😔", "🥺", "😭"],
+            "angry":
+                ["😤", "😤", "😠", "😠", "😡", "😡", "🤬", "🤬", "💢", "💢"],
+            "anxious":
+                ["😟", "😟", "😰", "😰", "😨", "😨", "😱", "😱", "🫨", "🫨"],
+            "excited":
+                ["🙂", "🙂", "😄", "😄", "🤩", "🤩", "🎉", "🎉", "🥳", "🥳"],
+            "tired":
+                ["😑", "😑", "😴", "😴", "🥱", "🥱", "😫", "😫", "💤", "💤"],
+            "surprised":
+                ["😮", "😮", "😲", "😲", "🤯", "🤯", "😱", "😱", "🫢", "🫢"],
+            "disgusted":
+                ["😕", "😕", "🤢", "🤢", "🤮", "🤮", "😖", "😖", "🤢", "🤮"],
+            "fearful":
+                ["😟", "😟", "😨", "😨", "😱", "😱", "🫨", "🫨", "😰", "😰"],
+            "calm":
+                ["😌", "😌", "🧘", "🧘", "😇", "😇", "☮️", "☮️", "🕊️", "🕊️"],
+            "confused":
+                ["🤔", "🤔", "😕", "😕", "🫤", "🫤", "😵", "😵", "😵‍💫", "😵‍💫"],
+        }
+
+        emojis = emoji_map.get(self.name, ["😐"] * 10)
+        return emojis[level - 1]
