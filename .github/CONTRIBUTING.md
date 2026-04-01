@@ -276,8 +276,11 @@ as a `Person` instance to be part of TheTown!
 Pull request steps:
 1. Fork and clone this repository
 2. **Create a new branch** using the special prefix `town`. Name the branch 
-   `town/add-yourname`.
-    - Replace `yourname` with your name, e.g., `town/add-morpheus`
+   `town/add-<yourname>`.
+    - Replace `<yourname>` with your name, e.g., `town/add-morpheus`
+    - This is only if you're adding your `Person` instance. Otherwise, choose a 
+      descriptive branch name that describes your changes (it still has to 
+      start with `town/`).
 3. Commit your changes and push to your remote fork.
 4. Open a pull request
 5. Await approval
