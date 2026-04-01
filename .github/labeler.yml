@@ -7,7 +7,7 @@ labels:
   - label: "bug"
     title: '^(?:[Bb][Uu][Gg](?:[Ff][Ii][Xx])?|[Hh][Oo][Tt][Ff][Ii][Xx]|[Ff][Ii][Xx])(?:\b|:|\s|$)'
   # Features
-  - label: "enhancement"
+  - label: "feature"
     title: '^(?:[Ff][Ee][Aa][Tt]|[Ff][Ee][Aa][Tt][Uu][Rr][Ee])(?:\b|:|\s|$)'
   # UI
   - label: "ui"
