@@ -123,7 +123,6 @@ enhancement to the project or fixing a bug)
    | `format`/`style` | Formatting fixes                               |
    | `refactor`       | Code improvements that do not affect behaviour |
    | `test`           | Changes to test files                          |
-   | `wip`            | Work in progress                               |
    | `experiment`     | Temporary, experimental code; playground       |
    | `mix`            | A combination of different fixes/changes       |
    | `misc`           | Other; miscellaneous                           |
@@ -132,15 +131,15 @@ enhancement to the project or fixing a bug)
    
 4. Make and commit your changes.
    - Commit messages should be in the imperative tone without a period.
-     - e.g.: `Add test files`, `Fix attribute assignments`, `Update 
-     documentation`
+     - e.g.: `Add test files`, `Fix this function`, `Update README`
 5. Push commits to GitHub (if you have made changes locally on your machine).
 6. Create and submit a pull request.
 7. Optional: Request a review from a maintainer.
 
-Please try to stay engaged with your PR and **avoid abandoning your work**. You 
-should receive a notification/email once your changes have been merged into the 
-main branch of this project.
+Please try to stay engaged with your PR and **avoid abandoning your work**. 
+
+You should receive a notification/email once your changes have been merged into 
+upstream main.
 
 ### ⚠️ THINGS TO KEEP IN MIND
 - **Rebase > Merge**: When updating a branch, **always use a rebase** and 
@@ -169,7 +168,7 @@ Some issues will be opened in the [Issues tab][repo-issues] on GitHub, labeled
 5. Start coding!
 
 **When writing the pull request**:
-- Start the PR title with `TASK: `.
+- Write your PR title like so: `TASK: <task title> (#<issue number>)`
 - In your PR description, **ensure you use an issue-closing keyword phrase**.
   - e.g., `Closes #123`, where `#123` is the issue number.
 
@@ -218,7 +217,7 @@ Key things to keep in mind include:
 - **Line separations** (2 blank lines around classes and functions, etc.)
 - **Order of import statements** (standard → third-party → local)
 
-===============================================
+—————————————————————————————————————————————————————————————————————
 
 > `2.` Always assume the user is stupid
 
@@ -226,7 +225,7 @@ Special cases (almost) always exist. Make sure you take into account as many
 input possibilities as you can, even those that anyone in their right mind 
 would never think of.
 
-===============================================
+—————————————————————————————————————————————————————————————————————
 
 > `3.` Don't be boring
 
