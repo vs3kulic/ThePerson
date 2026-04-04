@@ -138,7 +138,7 @@ class Person:
             print(*things, sep=sep, end=end, flush=flush)
             if index < repeat - 1 and delay_seconds > 0:
                 time.sleep(delay_seconds)
-
+    
     @staticmethod
     def wave() -> None:
         """Wave a hand to greet or bid farewell.
@@ -356,31 +356,26 @@ class Person:
         """
         return random.choice(iterable)
     
-    @staticmethod
-    def compliment(target: Person) -> str:
-        """Return a random compliment addressed to another person.
+    def compliment(self, target: Person) -> None:
+        """Give a random compliment to another person.
 
         Args:
             target (Person): The person receiving the compliment.
-
-        Returns:
-            str: A compliment message including the target's name.
 
         Raises:
             TypeError: If target is not a Person instance.
             ValueError: If target has no name set.
         """
-
         if not isinstance(target, Person):
             raise TypeError(
                 f"'target' must be a Person, got {type(target).__name__}"
             )
-
+        
         if target.profile.name is None:
             raise ValueError(
                 "'target' must have a name to receive a compliment"
             )
-
+        
         compliments = [
             "{name}, I brag to all my friends about you.",
             "{name}, you are more fun than anyone I know.",
@@ -394,30 +389,30 @@ class Person:
             "{name}, you are always so helpful.",
             "{name}, you are so sweet.",
         ]
-
-        return random.choice(compliments).format(
-            name=target.profile.name
-        )
         
+        self.say(random.choice(compliments).format(
+            name=target.profile.name
+        ))
+
     @staticmethod
     def write(contents: object, file: IO[str]) -> None:
         """Write contents to a text file-like object.
-
+        
         Args:
             contents: The content to be written, converted to str.
             file: A text I/O stream with a 'write(str)' method.
-
+        
         Raises:
             TypeError: If file has no callable write method.
         """
         write_method = getattr(file, "write", None)
-
+        
         if write_method is None or not callable(write_method):
             raise TypeError(
                 "file must be a writable object with a write(str) method, "
                 f"got {type(file).__name__}"
             )
-
+        
         file.write(str(contents))
 
     @staticmethod
@@ -425,8 +420,8 @@ class Person:
         """Shows a smiling or grinning face.
         
         Args:
-            smile_type (str | None): 
-                The type of smile to show (e.g., 'small', 'smile', 
+            smile_type (str | None):
+                The type of smile to show (e.g., 'small', 'smile',
                 'grin', 'wide'). Defaults to random if not given or not found.
         
         Raises:
@@ -435,8 +430,8 @@ class Person:
         smiling_emojis = {
             "small": "\U0001F642",  # 🙂 slightly smiling face
             "smile": "\U0001F60A",  # 😊 smiling face, smiling eyes
-            "grin": "\U0001F601",   # 😁 grinning face with smiling eyes
-            "wide": "\U0001F604",   # 😄 open mouth with smiling eyes
+            "grin": "\U0001F601",  # 😁 grinning face with smiling eyes
+            "wide": "\U0001F604",  # 😄 open mouth with smiling eyes
         }
         
         if smile_type is not None and not isinstance(smile_type, str):
@@ -444,9 +439,9 @@ class Person:
                 "'smile_type' must be a str or None, "
                 f"got {type(smile_type).__name__}"
             )
-
+        
         smiley = smiling_emojis.get(
             str(smile_type), random.choice(list(smiling_emojis.values()))
         )
-
+        
         print(smiley)
