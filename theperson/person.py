@@ -170,7 +170,8 @@ class Person:
         }
 
         emoji = crying_emojis.get(
-            emoji_type, random.choice(list(crying_emojis.values()))
+            # Stringify to comply with type hint when 'emoji_type' is None
+            str(emoji_type), random.choice(list(crying_emojis.values()))
         )
         print(emoji)
 
@@ -310,7 +311,7 @@ class Person:
         """
         
         if isinstance(tasks, str):
-            tasks = [tasks]
+            tasks: list = [tasks]
         elif not isinstance(tasks, list):
             raise TypeError("'tasks' must be a string or a list of strings")
         
@@ -318,7 +319,7 @@ class Person:
             raise TypeError("All tasks must be strings")
         
         if isinstance(durations, float):
-            durations = [durations] * len(tasks)
+            durations: list = [durations] * len(tasks)
         elif not isinstance(durations, list):
             raise TypeError("'durations' must be a float or a list of floats")
         
