@@ -21,9 +21,8 @@ VALID_MESSAGES = [
     "What if I'm just a simulated person living in a Python script???"
 ]
 
-
 def test_existential_crisis_prints_valid_message(
-        capsys: pytest.CaptureFixture[str]
+    capsys: pytest.CaptureFixture[str]
 ) -> None:
     dummy = Person()
     dummy.existential_crisis()
@@ -32,7 +31,8 @@ def test_existential_crisis_prints_valid_message(
 
 
 def test_existential_crisis_controlled(
-        capsys, monkeypatch: pytest.MonkeyPatch
+    capsys: pytest.CaptureFixture[str], 
+    monkeypatch: pytest.MonkeyPatch
 ) -> None:
     
     def fake_random_choice(sequence):
