@@ -426,17 +426,17 @@ class Person:
         
         Args:
             smile_type (str | None): 
-                The type of smile to show (e.g., 'small', 'smile', 'grin', 'wide').
-                Defaults to a random smile if not given or not found.
+                The type of smile to show (e.g., 'small', 'smile', 
+                'grin', 'wide'). Defaults to random if not given or not found.
         
         Raises:
             TypeError: if smile_type is given but not a str.
         """
         smiling_emojis = {
             "small": "\U0001F642",  # 🙂 slightly smiling face
-            "smile": "\U0001F60A",  # 😊 smiling face with smiling eyes
+            "smile": "\U0001F60A",  # 😊 smiling face, smiling eyes
             "grin": "\U0001F601",   # 😁 grinning face with smiling eyes
-            "wide": "\U0001F604",   # 😄 smiling face with open mouth and smiling eyes
+            "wide": "\U0001F604",   # 😄 open mouth with smiling eyes
         }
         
         if smile_type is not None and not isinstance(smile_type, str):
