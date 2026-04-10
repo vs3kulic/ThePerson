@@ -389,9 +389,11 @@ class Person:
             "{name}, you are so sweet.",
         ]
         
-        self.say(random.choice(compliments).format(
-            name=target.profile.name
-        ))
+        self.say(
+            random.choice(compliments).format(
+                name=target.profile.name
+            )
+        )
 
     @staticmethod
     def write(contents: object, file: IO[str]) -> None:
