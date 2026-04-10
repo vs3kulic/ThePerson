@@ -476,7 +476,7 @@ class Person:
         if check_birthday:
             if birthday is None:
                 raise ValueError("Cannot age up, birthday date is not set.")
-            elif (today.month, today.day) != (birthday.month, birthday.day):
+            if (today.month, today.day) != (birthday.month, birthday.day):
                 raise ValueError("Cannot age up, today is not the birthday.")
 
         if height_increment is not None:
