@@ -43,7 +43,7 @@ if __name__ == "__main__":
     joe.greet(morpheus)
     
     morpheus.greet(joe)
-    print(morpheus.compliment(joe))
+    morpheus.compliment(joe)
 
     chetan = Person(
         profile=Profile(
