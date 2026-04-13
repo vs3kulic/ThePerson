@@ -13,6 +13,7 @@ from theperson.person import Person
 VALID_SMILE_TYPES = ["small", "smile", "grin", "wide"]
 VALID_SMILE_PRINT = ["🙂", "😊", "😁", "😄"]
 
+
 def test_smile_without_type(
     capsys: pytest.CaptureFixture[str]
 ) -> None:
